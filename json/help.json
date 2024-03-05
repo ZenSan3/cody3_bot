@@ -1,0 +1,36 @@
+[
+    {
+        "name": "!help",
+        "value": "Richiede la lista degli help",
+        "inline": false
+    },
+    {
+        "name": "Test funzionamento",
+        "value": "",
+        "inline": false
+    },
+    {
+        "name": "!ping",
+        "value": "Controlla se il bot funziona (se funziona help dovrebbe funzionare comunque)",
+        "inline": true
+    },
+    {
+        "name": "!channel",
+        "value": "Scrive chi ha invocato il comando e dove lo ha chiamato",
+        "inline": true
+    },
+    {
+        "name": "Funzionalità",
+        "value": "",
+        "inline": false
+    },
+    {
+        "name": "!ship",
+        "value": "Crea una ship tra i personaggi dei nostri videogiochi",
+        "inline": true
+    },{
+        "name": "!version <game>",
+        "value": "Printa le info delle versioni del gioco richiesto, i giochi possono essere: \nBaffoAdvetures, \nTheApprenticePainter, s\nWhoBrokeTheSky",
+        "inline": true
+    }
+]
