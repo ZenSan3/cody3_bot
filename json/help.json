@@ -30,7 +30,7 @@
         "inline": true
     },{
         "name": "!version <game>",
-        "value": "Printa le info delle versioni del gioco richiesto, i giochi possono essere: \nBaffoAdvetures, \nTheApprenticePainter, s\nWhoBrokeTheSky",
+        "value": "Printa le info delle versioni del gioco richiesto, i giochi possono essere: \nbaffo, \nsky, \npainter",
         "inline": true
     }
 ]

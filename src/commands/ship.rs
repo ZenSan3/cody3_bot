@@ -1,22 +1,20 @@
-use std::fs::File;
-use std::io::prelude::*;
-use serde_json::Value;
 use rand::Rng;
 use serenity::model::channel::Message;
 use serenity::builder::{CreateEmbed, CreateMessage};
 use serenity::prelude::*;
 use rand::rngs::OsRng;
 
+use super::file::opfile;
 
 
 pub async fn ship_maker(ctx: &Context, msg: &Message){
     let mut lista:Vec<String> = Vec::new();
     
-    let mut file = File::open("./json/ship.json").unwrap();
-    let mut contents = String::new();
-    file.read_to_string(&mut contents).unwrap();
+    let data = match opfile("./json/ship.json".to_owned(), ctx, msg).await {
+        Ok(dati)=> dati,
+        Err(_err)=>return,
+    };
 
-    let data: Value = serde_json::from_str(&contents).unwrap();
     let mut i = 0;
     while !(data[i].is_null()){
         lista.push(data[i]["nome"].to_string().replace('"', ""));

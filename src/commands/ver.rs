@@ -6,15 +6,16 @@ use serenity::builder::{CreateEmbed, CreateMessage};
 use serenity::prelude::*;
 
 use super::err::errore;
+use super::file::opfile;
 
 pub async fn version(ctx: &Context, msg: &Message, game: &str){
     
     let mut campo: Vec<(String, String, bool)> = Vec::new();
-    let mut file = File::open("./json/version.json").expect(&errore(1, ctx, msg).await);
-    let mut contents = String::new();
-    file.read_to_string(&mut contents).expect(&errore(1, ctx, msg).await);
-
-    let data: Value = serde_json::from_str(&contents).expect(&errore(1, ctx, msg).await);
+    
+    let data = match opfile("./json/version.json".to_owned(), ctx, msg).await {
+        Ok(dati)=> dati,
+        Err(_err)=>return,
+    };
     
     match game {
         "baffo"=> baffo(data, &mut campo).await,
