@@ -1,4 +1,3 @@
-use serenity::json::NULL;
 use serenity::model::channel::Message;
 use serenity::builder::{CreateEmbed, CreateMessage};
 use serenity::prelude::*;

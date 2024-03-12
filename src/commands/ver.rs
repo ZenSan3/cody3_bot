@@ -1,5 +1,3 @@
-use std::fs::File;
-use std::io::prelude::*;
 use serde_json::Value;
 use serenity::model::channel::Message;
 use serenity::builder::{CreateEmbed, CreateMessage};
