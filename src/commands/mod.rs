@@ -5,4 +5,6 @@ pub mod help;
 pub mod ship;
 pub mod ver;
 
+pub mod ratatui;
+
 pub mod file;

@@ -37,7 +37,7 @@ pub async fn version(ctx: &Context, msg: &Message, game: &str){
 
 }
 
-pub (self) async fn baffo(data: Value, campo: &mut Vec<(String, String, bool)>){
+async fn baffo(data: Value, campo: &mut Vec<(String, String, bool)>){
 
     let titoli:[&str; 3] = ["Title", "Version", "Released"];
     let mut i = 0;

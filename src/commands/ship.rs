@@ -28,8 +28,8 @@ pub async fn ship_maker(ctx: &Context, msg: &Message){
         let n = OsRng.gen_range(0..lista.len());
         let tmp = (lista[n].to_owned(), " ".to_owned(), true);
         let mut ctr = false;
-        for n in 0..(ship.len()){
-            if ship[n] == tmp{
+        for dati in &ship{
+            if *dati == tmp{
                 ctr = true;
             }
         }
