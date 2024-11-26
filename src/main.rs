@@ -2,19 +2,11 @@ mod commands;
 
 use std::env;
 
-use std::io::{ stdout, Result};
-use crossterm::{
-    event::{self, Event, KeyCode},
-    terminal::{disable_raw_mode, enable_raw_mode, EnterAlternateScreen, LeaveAlternateScreen},
-    ExecutableCommand,
-};
-use ratatui::prelude::*;
-
 use commands::channel::*;
 use commands::err::errore;
 use commands::ping::*;
 use commands::help::*;
-use commands::ratatui::ui;
+use commands::ratatui::refresh_terminal;
 use commands::ship::ship_maker;
 use commands::ver::version;
 use dotenv::dotenv;
@@ -47,8 +39,8 @@ impl EventHandler for Handler{
         }
     }
 
-    async fn ready(&self, _: Context, ready:Ready){
-        let _ = create_terminal();
+    async fn ready(&self, _: Context, _ready:Ready){
+        let _ = refresh_terminal();
     }
 }
 
@@ -66,37 +58,8 @@ async fn main() {
     
     let mut client = Client::builder(token, intents).event_handler(Handler).await.expect("Err creating client");
     
+
     if let Err(why) = client.start().await{
         println!("Client error: {why:?}");
     }
-
-    
-}
-
-pub fn create_terminal()->Result<()>{
-    
-    enable_raw_mode()?;
-    stdout().execute(EnterAlternateScreen)?;
-    let mut terminal = Terminal::new(CrosstermBackend::new(stdout()))?;
-
-    let mut should_quit = false;
-    while !should_quit {
-        terminal.draw(ui)?;
-        should_quit = handle_events()?;
-    }
-
-    disable_raw_mode()?;
-    stdout().execute(LeaveAlternateScreen)?;
-    Ok(())
-}
-
-fn handle_events() -> Result<bool> {
-    if event::poll(std::time::Duration::from_millis(50))? {
-        if let Event::Key(key) = event::read()? {
-            if key.kind == event::KeyEventKind::Press && key.code == KeyCode::Char('q') {
-                return Ok(true);
-            }
-        }
-    }
-    Ok(false)
 }
