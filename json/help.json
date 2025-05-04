@@ -30,7 +30,7 @@
         "inline": true
     },{
         "name": "!version <game>",
-        "value": "Printa le info delle versioni del gioco richiesto, i giochi possono essere: \nbaffo, \nsky, \npainter",
+        "value": "Printa le info delle versioni del gioco richiesto, i giochi possono essere: mustache, sky, painter, villa",
         "inline": true
     }
 ]

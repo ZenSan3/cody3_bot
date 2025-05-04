@@ -24,7 +24,10 @@ impl EventHandler for Handler{
         if msg.content.starts_with('!') {
             if msg.content.starts_with("!version"){
                 match msg.content.to_lowercase().as_str(){
-                    "!version baffo"=> version(&context, &msg, "baffo").await,
+                    "!version mustache"=> version(&context, &msg, "mustache").await,
+                    "!version sky"=> version(&context, &msg, "sky").await,
+                    "!version painter"=> version(&context, &msg, "painter").await,
+                    "!version villa"=> version(&context, &msg, "villa").await,
                     _=> println!("{}", errore(3, &context, &msg).await),
                 }
             }else{

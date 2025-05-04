@@ -16,7 +16,10 @@ pub async fn version(ctx: &Context, msg: &Message, game: &str){
     };
     
     match game {
-        "baffo"=> baffo(data, &mut campo).await,
+        "mustache"=> mustache(data, &mut campo).await,
+        "sky"=> sky(data, &mut campo).await,
+        "painter"=> painter(data, &mut campo).await,
+        "villa"=> villa(data, &mut campo).await,
         _ => println!("{}", errore(5, ctx, msg).await),
     }
 
@@ -37,12 +40,42 @@ pub async fn version(ctx: &Context, msg: &Message, game: &str){
 
 }
 
-async fn baffo(data: Value, campo: &mut Vec<(String, String, bool)>){
+async fn mustache(data: Value, campo: &mut Vec<(String, String, bool)>){
 
     let titoli:[&str; 3] = ["Title", "Version", "Released"];
     let mut i = 0;
-    while !(data["baffo"][i].is_null()) {
-        campo.push((titoli[i].to_owned().replace('"', ""), data["baffo"][i].to_string(), false));
+    while !(data["mustache"][i].is_null()) {
+        campo.push((titoli[i].to_owned().replace('"', ""), data["mustache"][i].to_string(), false));
+        i+=1;
+    }
+}
+
+async fn sky(data: Value, campo: &mut Vec<(String, String, bool)>){
+
+    let titoli:[&str; 3] = ["Title", "Version", "Released"];
+    let mut i = 0;
+    while !(data["sky"][i].is_null()) {
+        campo.push((titoli[i].to_owned().replace('"', ""), data["sky"][i].to_string(), false));
+        i+=1;
+    }
+}
+
+async fn painter(data: Value, campo: &mut Vec<(String, String, bool)>){
+
+    let titoli:[&str; 3] = ["Title", "Version", "Released"];
+    let mut i = 0;
+    while !(data["painter"][i].is_null()) {
+        campo.push((titoli[i].to_owned().replace('"', ""), data["painter"][i].to_string(), false));
+        i+=1;
+    }
+}
+
+async fn villa(data: Value, campo: &mut Vec<(String, String, bool)>){
+
+    let titoli:[&str; 3] = ["Title", "Version", "Released"];
+    let mut i = 0;
+    while !(data["villa"][i].is_null()) {
+        campo.push((titoli[i].to_owned().replace('"', ""), data["villa"][i].to_string(), false));
         i+=1;
     }
 }

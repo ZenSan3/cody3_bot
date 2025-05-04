@@ -1,17 +1,22 @@
 {   
-    "baffo": [
-        "Baffo Adventures",
+    "mustache": [
+        "Project: Mustache",
         "0.1.0",
         "false"
     ],
     "sky":[
-        "Who Broke The Sky?",
+        "Project: Sky",
         "0.1.0",
         "false"
     ],
     "painter":[
-        "The Apprentice Painter",
+        "Project: Painter",
         "0.1.0",
+        "false"
+    ],
+    "villa":[
+        "Project: Villa",
+        "Pre-beta",
         "false"
     ]    
 }
